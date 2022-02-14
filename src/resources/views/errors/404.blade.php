@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>TC Arzachena Backend {{ app()->version() }}</title>
+    <title>{{ config('app.name') }} | {{ app()->version() }}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -100,7 +100,7 @@
     @endif
 
     <div class="content">
-        errore 404
+        404 Not Found
     </div>
 </div>
 

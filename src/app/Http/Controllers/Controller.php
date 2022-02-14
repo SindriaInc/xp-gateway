@@ -7,7 +7,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Session;
 
 class Controller extends BaseController
 {
@@ -24,15 +23,5 @@ class Controller extends BaseController
         ResponseFactory $responseFactory
     ) {
         $this->responseFactory = $responseFactory;
-    }
-
-    protected function flashSuccess(string $message): void
-    {
-        Session::flash('success_message', $message);
-    }
-
-    protected function flashDanger(string $message): void
-    {
-        Session::flash('danger_message', $message);
     }
 }
