@@ -77,7 +77,12 @@ class Handler extends ExceptionHandler
             return $this->sendError('Not Found', 404);
         }
 
-        return $this->prepareJsonResponse($request, $e);
+        if (env('APP_DEBUG') == true) {
+            return $this->prepareResponse($request, $e);
+        } else {
+            return $this->prepareJsonResponse($request, $e);
+        }
+
     }
 
 }
