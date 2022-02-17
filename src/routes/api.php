@@ -118,7 +118,7 @@ Route::group(['prefix' => '/v1'], function () {
     });
 
     // Auth API Routes
-    Route::group(['middleware' => 'keycloak', 'prefix' => ''], function () {
+    Route::group(['prefix' => ''], function () {
 
 //        // Tournaments API
 //        Route::group(['prefix' => '/tournaments'], function () {
@@ -148,6 +148,40 @@ Route::group(['prefix' => '/v1'], function () {
 //                Route::post('/delete/{id}', 'Api\ProxyController@handle')->name('api.v1.tournaments.subscribers.delete');
 //            });
 //        });
+
+
+
+        Route::group(['prefix' => '/policies'], function () {
+            // Get all policies
+            Route::get('/', 'Api\ProxyController@handle')->name('api.policies');
+
+            // Get a policy
+            Route::get('/show/{id}', 'Api\ProxyController@handle')->name('api.policies.show');
+
+            // Search policy
+            Route::post('/search', 'Api\ProxyController@handle')->name('api.policies.search');
+
+            // Store a policy
+            Route::post('/', 'Api\ProxyController@handle')->name('api.policies.store');
+
+            // Edit a policy
+            Route::post('/edit', 'Api\ProxyController@handle')->name('api.policies.edit');
+
+            // Delete a policy
+            Route::delete('/delete/{id}', 'Api\ProxyController@handle')->name('api.policies.delete');
+
+            // Show policies attached to user
+            Route::get('/show/user/{id}', 'Api\ProxyController@handle')->name('api.policies.showUserPolicies');
+
+            // Show users attached to policy
+            Route::get('/show/users/{id}', 'Api\ProxyController@handle')->name('api.policies.showPolicyUsers');
+
+            // Attach a policy
+            Route::post('/attach', 'Api\ProxyController@handle')->name('api.policies.attach');
+
+            // Detach a policy
+            Route::post('/detach', 'Api\ProxyController@handle')->name('api.policies.detach');
+        });
 
         // Settings API
         Route::group(['prefix' => '/settings'], function () {

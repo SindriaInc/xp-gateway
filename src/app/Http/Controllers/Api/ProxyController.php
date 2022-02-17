@@ -16,6 +16,7 @@ class ProxyController extends ApiController
     public function handle(Request $request)
     {
         $token = NULL;
+       // dd($request);
 
         if ($request->headers->has('authorization')) {
             $token = $request->header('authorization');
@@ -39,6 +40,7 @@ class ProxyController extends ApiController
     public function makeRequest($method, $uri, $query = [], $data = [], $headers = [], $file = [], $token = NULL)
     {
         $service = $this->matchService($uri);
+
         $url = $this->makeUrlRequest($service, $uri);
 
         // Only for auth token request
@@ -172,6 +174,8 @@ class ProxyController extends ApiController
         } else {
             $response = Http::post($url, $data);
         }
+
+        dd($response);
 
         return $response->json();
     }
