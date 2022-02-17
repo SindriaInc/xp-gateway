@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e83f0ecc558ed87873889d7d3086786",
+    "content-hash": "07d200319fe029716a60632011114b3f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1464,66 +1464,6 @@
             "time": "2021-10-01T21:08:31+00:00"
         },
         {
-            "name": "myclabs/php-enum",
-            "version": "1.8.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/myclabs/php-enum.git",
-                "reference": "b942d263c641ddb5190929ff840c68f78713e937"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/b942d263c641ddb5190929ff840c68f78713e937",
-                "reference": "b942d263c641ddb5190929ff840c68f78713e937",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": "^7.3 || ^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5",
-                "squizlabs/php_codesniffer": "1.*",
-                "vimeo/psalm": "^4.6.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MyCLabs\\Enum\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP Enum contributors",
-                    "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
-                }
-            ],
-            "description": "PHP Enum implementation",
-            "homepage": "http://github.com/myclabs/php-enum",
-            "keywords": [
-                "enum"
-            ],
-            "support": {
-                "issues": "https://github.com/myclabs/php-enum/issues",
-                "source": "https://github.com/myclabs/php-enum/tree/1.8.3"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/mnapoli",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/myclabs/php-enum",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-07-05T08:18:36+00:00"
-        },
-        {
             "name": "nesbot/carbon",
             "version": "2.56.0",
             "source": {
@@ -2358,66 +2298,6 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
-        },
-        {
-            "name": "sindria/laravel-repository",
-            "version": "2.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SindriaInc/laravel-repository.git",
-                "reference": "f6ce1cb9d6b17ec1102c38d152a3fbed37d89b3c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SindriaInc/laravel-repository/zipball/f6ce1cb9d6b17ec1102c38d152a3fbed37d89b3c",
-                "reference": "f6ce1cb9d6b17ec1102c38d152a3fbed37d89b3c",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^6.0|^7.0|^7.3",
-                "illuminate/support": "^6.0|^7.0|^7.3",
-                "myclabs/php-enum": "^1.7",
-                "php": ">=7.1.3"
-            },
-            "require-dev": {
-                "astrotomic/laravel-translatable": "^11.5",
-                "czim/laravel-listify": "~1.1.0",
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": "^7.0|^8.0",
-                "watson/rememberable": "^3.2|^4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Czim\\Repository\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Luca Pitzoi",
-                    "email": "luca.pitzoi@sindria.org",
-                    "homepage": "https://sindria.org",
-                    "role": "DevOps"
-                }
-            ],
-            "description": "Repository for Laravel (fork of czim/laravel-repository)",
-            "homepage": "https://github.com/SindriaInc/laravel-repository",
-            "keywords": [
-                "criteria",
-                "database",
-                "eloquent",
-                "laravel",
-                "repositories",
-                "repository"
-            ],
-            "support": {
-                "source": "https://github.com/SindriaInc/laravel-repository/tree/master"
-            },
-            "time": "2020-03-30T01:03:33+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
