@@ -66,39 +66,39 @@ Route::group(['middleware' => 'keycloak', 'prefix' => 'users'], function () {
 });
 
 
-// Auth Policies API
-Route::group(['middleware' => 'keycloak', 'prefix' => 'policies'], function () {
-
-    // Get all policies
-    Route::get('/', 'Api\PoliciesController@index')->name('api.policies');
-
-    // Get a policy
-    Route::get('/show/{id}', 'Api\PoliciesController@show')->name('api.policies.show');
-
-    // Search policy
-    Route::post('/search', 'Api\PoliciesController@search')->name('api.policies.search');
-
-    // Store a policy
-    Route::post('/store', 'Api\PoliciesController@store')->name('api.policies.store');
-
-    // Edit a policy
-    Route::post('/edit', 'Api\PoliciesController@edit')->name('api.policies.edit');
-
-    // Delete a policy
-    Route::delete('/delete/{id}', 'Api\PoliciesController@delete')->name('api.policies.delete');
-
-    // Show policies attached to user
-    Route::get('/show/user/{id}', 'Api\PoliciesController@showUserPolicies')->name('api.policies.showUserPolicies');
-
-    // Show users attached to policy
-    Route::get('/show/users/{id}', 'Api\PoliciesController@showPolicyUsers')->name('api.policies.showPolicyUsers');
-
-    // Attach a policy
-    Route::post('/attach', 'Api\PoliciesController@attach')->name('api.policies.attach');
-
-    // Detach a policy
-    Route::post('/detach', 'Api\PoliciesController@detach')->name('api.policies.detach');
-});
+// Auth Policies API - TODO: remove this routes
+//Route::group(['middleware' => 'keycloak', 'prefix' => 'policies'], function () {
+//
+//    // Get all policies
+//    Route::get('/', 'Api\PoliciesController@index')->name('api.policies');
+//
+//    // Get a policy
+//    Route::get('/show/{id}', 'Api\PoliciesController@show')->name('api.policies.show');
+//
+//    // Search policy
+//    Route::post('/search', 'Api\PoliciesController@search')->name('api.policies.search');
+//
+//    // Store a policy
+//    Route::post('/store', 'Api\PoliciesController@store')->name('api.policies.store');
+//
+//    // Edit a policy
+//    Route::post('/edit', 'Api\PoliciesController@edit')->name('api.policies.edit');
+//
+//    // Delete a policy
+//    Route::delete('/delete/{id}', 'Api\PoliciesController@delete')->name('api.policies.delete');
+//
+//    // Show policies attached to user
+//    Route::get('/show/user/{id}', 'Api\PoliciesController@showUserPolicies')->name('api.policies.showUserPolicies');
+//
+//    // Show users attached to policy
+//    Route::get('/show/users/{id}', 'Api\PoliciesController@showPolicyUsers')->name('api.policies.showPolicyUsers');
+//
+//    // Attach a policy
+//    Route::post('/attach', 'Api\PoliciesController@attach')->name('api.policies.attach');
+//
+//    // Detach a policy
+//    Route::post('/detach', 'Api\PoliciesController@detach')->name('api.policies.detach');
+//});
 
 
 // Micro-services routes
@@ -118,7 +118,7 @@ Route::group(['prefix' => '/v1'], function () {
     });
 
     // Auth API Routes
-    Route::group(['prefix' => ''], function () {
+    Route::group(['middleware' => 'keycloak', 'prefix' => ''], function () {
 
 //        // Tournaments API
 //        Route::group(['prefix' => '/tournaments'], function () {

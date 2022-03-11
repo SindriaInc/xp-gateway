@@ -19,9 +19,7 @@ class Controller extends BaseController
      */
     protected $responseFactory;
 
-    public function __construct(
-        ResponseFactory $responseFactory
-    ) {
+    public function __construct(ResponseFactory $responseFactory) {
         $this->responseFactory = $responseFactory;
     }
 }

@@ -74,15 +74,10 @@ class Handler extends ExceptionHandler
         } elseif ($e instanceof ValidationException) {
             return $this->convertValidationExceptionToResponse($e, $request);
         } elseif ($e instanceof NotFoundHttpException) {
-            return $this->sendError('Not Found', 404);
+            return (env('APP_DEBUG')) ? $this->sendError('Route Not Found', 404) : $this->sendError('Not Found', 404);
         }
 
-        if (env('APP_DEBUG') == true) {
-            return $this->prepareResponse($request, $e);
-        } else {
-            return $this->prepareJsonResponse($request, $e);
-        }
-
+        return (env('APP_DEBUG')) ? $this->prepareResponse($request, $e) : $this->prepareJsonResponse($request, $e);
     }
 
 }
