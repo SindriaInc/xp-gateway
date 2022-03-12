@@ -18,7 +18,7 @@ jobs:
     - name: Inject Secrets
       env:
         APP_ENV: ${{ secrets.APP_ENV }}
-      run: cat ${APP_ENV} > src/.env
+      run: (umask 077; echo ${APP_ENV} | base64 -d > src/.env)
     - name: Build Image
       env:
         DOCKERHUB_NAMESPACE: ${{ secrets.DOCKERHUB_NAMESPACE }}
