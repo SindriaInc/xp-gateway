@@ -1,4 +1,20 @@
-FROM sindriainc/nginx-php:2.0.0-7.4-production
+# Build Stage
+FROM sindriainc/nginx-php:local-7.4 as builder
+
+# Add source code
+COPY ./ /var/www/app
+
+# Build dependecies
+RUN composer install --no-interaction --no-suggest --no-ansi --no-progress
+
+# Build Artifact
+# TODO: build phar artifact
+
+# Push Artifact
+# TODO: push phar artifact
+
+# Production Stage
+FROM sindriainc/nginx-php:4.0.2-7.4
 
 WORKDIR /var/www/app
 
@@ -18,7 +34,7 @@ ENV SINDRIA_USER="sindria"
 ENV SINDRIA_USER_HOME="/home/sindria"
 
 # Install application
-COPY ./ /var/www/app
+COPY --from=builder /var/www/app /var/www/app
 
 # Setting Timezone and Fixing permission
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
