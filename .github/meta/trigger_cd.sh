@@ -13,26 +13,9 @@ fi
 IAC_REPO_SLUG_REF=$1
 IAC_RELEASE_VERSION_REF=$2
 
-curl -X POST -is -u ${IAC_GIT_USERNAME}:${IAC_GIT_PASSWORD} \
-  -H 'Content-Type: application/json' \
- https://api.bitbucket.org/2.0/repositories/${IAC_GIT_NAMESPACE}/${IAC_GIT_REPO_SLUG}/pipelines/ \
-  -d '
-  {
-    "target": {
-      "ref_type": "branch",
-      "type": "pipeline_ref_target",
-      "ref_name": "master"
-    },
-    "variables": [
-    {
-      "key": "IAC_REPO_SLUG_REF",
-      "value": '"$IAC_REPO_SLUG_REF"',
-      "secured": false
-    },
-    {
-      "key": "IAC_RELEASE_VERSION_REF",
-      "value": '"$IAC_RELEASE_VERSION_REF"',
-      "secured": false
-    }
-  ]
-  }'
+JSON_PAYLOAD=$( jq -n \
+                  --arg iac_repo_slug_ref "${IAC_REPO_SLUG_REF}" \
+                  --arg iac_release_version_ref "${IAC_RELEASE_VERSION_REF}" \
+'{"target": {"ref_type": "branch","type": "pipeline_ref_target","ref_name": "master"},"variables": [{"key": "IAC_REPO_SLUG_REF","value": $iac_repo_slug_ref,"secured": "false"},{"key": "IAC_RELEASE_VERSION_REF","value": $iac_release_version_ref,"secured": "false"}]}')
+
+curl -X POST -is -u ${IAC_GIT_USERNAME}:${IAC_GIT_PASSWORD} -H 'Content-Type: application/json' https://api.bitbucket.org/2.0/repositories/${IAC_GIT_NAMESPACE}/${IAC_GIT_REPO_SLUG}/pipelines/ -d ${JSON_PAYLOAD}
