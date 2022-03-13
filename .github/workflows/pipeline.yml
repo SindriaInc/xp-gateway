@@ -34,3 +34,10 @@ jobs:
       run: |
         docker push ${DOCKERHUB_NAMESPACE}/${REPO_SLUG}:${RELEASE_VERSION}
         docker push ${DOCKERHUB_NAMESPACE}/${REPO_SLUG}:latest
+    - name: Trigger CD
+      env:
+        IAC_GIT_USERNAME: ${{ secrets.IAC_GIT_USERNAME }}
+        IAC_GIT_PASSWORD: ${{ secrets.IAC_GIT_PASSWORD }}
+        IAC_GIT_NAMESPACE: ${{ secrets.IAC_GIT_NAMESPACE }}
+        IAC_GIT_REPO_SLUG: ${{ secrets.IAC_GIT_REPO_SLUG }}
+      run: bash .github/meta/trigger_cd.sh ${REPO_SLUG} ${RELEASE_VERSION}
